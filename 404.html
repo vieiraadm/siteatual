@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Planilhas - Personalizadas Jogo Fácil Ouro - Home Office</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #cccccc;
+        }
+        .container {
+            width: calc(90% - 60px);
+            margin: 60px auto 0;
+            padding: 60px;
+            background: rgba(102, 51, 153, 0.3); /* Cor de fundo roxo com 80% de opacidade */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+            color: #fff;
+        }
+        .container2 {
+            width: calc(90% - 60px);
+            margin: 80px auto 0;
+            padding: 60px;
+            background: rgba(102, 51, 153, 0.3); /* Cor de fundo roxo com 80% de opacidade */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+        .banner1-wrapper {
+            width: calc(90% - -18px);
+            margin: 40px auto;
+            background-color: rgba(107, 91, 149, 0.8); /* Cor de fundo roxo com 80% de opacidade */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            padding: 18px;
+            text-align: left;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            position: sticky; /* Torna a faixa superior fixa */
+            top: 0; /* Fixa no topo da janela */
+            z-Home: 1000; /* Garante que a faixa permaneça sobre outros elementos */
+        }
+        .banner1-text {
+            flex-grow: 1; /* Para ocupar o espaço restante */
+            font-size: 26px;
+            margin: 2;
+            text-align: center; /* Centraliza o texto horizontalmente */
+        }
+        .banner2-wrapper {
+            width: calc(90% - -18px);
+            margin: 40px auto;
+            background-color: #6b5b95;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            padding: 20px;
+            text-align: left;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .banner3-wrapper {
+            width: calc(90% - -18px);
+            margin: 40px auto;
+            background-color: #6b5b95;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+            text-align: left;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .banner2-text {
+            font-size: 17px;
+            margin: 0;
+            text-align: justify;
+        }
+        .banner3-text {
+            font-size: 26px;
+            margin: 0;
+            text-align: justify;
+        }
+        .third-section {
+            width: 90%;
+            margin: 40px auto; /* Centraliza horizontalmente e adiciona espaço */
+            display: flex;
+            justify-content: space-between;
+        }
+        .model-box {
+            width: calc(15% - 15px); /* Largura de cada módulo */
+            height: 150px; /* Defina a altura desejada */
+            position: relative;
+            flex-grow: 1;
+            padding: 5px;
+            text-align: left;
+            color: #fff;
+            margin: 0 5px;
+            transition: transform 0.2s ease;
+            background: #333;
+            border-radius: 5px;
+        }
+        /* Estilos para quando o mouse passa por cima */
+        .model-box:hover {
+            transform: translateY(-10px); /* Eleva a caixa ao passar o mouse */
+        }
+        .model-text {
+            font-size: 14px; /* Altere o tamanho do texto conforme necessário */
+        }
+        .basic {
+            background: linear-gradient(135deg, #ff3366, #663399);
+        }
+        .intermediate {
+            background: linear-gradient(135deg, #3399ff, #33ccff);
+        }
+        .premium {
+            background: linear-gradient(135deg, #66cc99, #339933);
+        }
+        .free {
+            background: linear-gradient(135deg, #ff9933, #ffcc00);
+        }
+        .model-box2 {
+            width: calc(15% - 15px);
+            height: 150px;
+            position: relative;
+            flex-grow: 1;
+            padding: 5px;
+            text-align: left;
+            margin: 0 5px;
+            transition: transform 0.2s ease;
+            background: #333;
+            border-radius: 5px;
+        }
+        .model-box2:hover {
+            transform: translateY(-10px);
+        }
+        .model-text2 {
+            font-size: 14px;
+            color: black; /* Define a cor do texto como preto */
+        }
+        /* Aplica o mesmo gradiente branco-verde claro para todos os módulos */
+        .basic2, .intermediate2, .premium2, .free2 {
+            background: linear-gradient(135deg, #ffffff, #b2d8d0);
+        }
+        /* Estilos para quando o mouse passa por cima */
+        .model-box2:hover {
+            transform: translateY(-10px); /* Eleva a caixa ao passar o mouse */
+        }
+        .model-text2 {
+            font-size: 14px; /* Altere o tamanho do texto conforme necessário */
+        }
+        .basic2 {
+            background: linear-gradient(135deg, #ffffff, #b2d8d0); /* Branco para um tom de verde claro */
+        }
+        .intermediate2 {
+            background: linear-gradient(135deg, #ffffff, #b2d8d0); /* Branco para um tom de verde claro */
+        }
+        .premium2 {
+            background: linear-gradient(135deg, #ffffff, #b2d8d0); /* Branco para um tom de verde claro */
+        }
+        .free2 {
+            background: linear-gradient(135deg, #ffffff, #b2d8d0); /* Branco para um tom de verde claro */
+        }
+        .buy-button {
+            background-color: #cccccc; /* Cinza claro */
+            color: black; /* Cor da fonte preta */
+            font-weight: bold; /* Negrito */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s; /* Adiciona transição suave */
+        }
+        .buy-button:hover {
+            background-color: #663399; /* Roxo ao passar o mouse */
+            color: white; /* Cor da fonte branca ao passar o mouse */
+        }
+        .footer {
+            background-color: #220; /* Cor de fundo escura */
+            color: white; /* Cor do texto branco */
+            padding: 10px; /* Espaçamento interno */
+            text-align: center; /* Alinhamento do texto ao centro */
+            border-radius: 5px;
+            margin-top: 40px;
+        }
+        .footer p {
+            margin: 0; /* Remove margens */
+        }
+        .product-icon {
+            position: absolute; /* Posição absoluta */
+            right: 10px; /* Distância da borda direita */
+            top: 50%; /* Alinhamento vertical no meio */
+            transform: translateY(-50%); /* Ajuste para centralizar verticalmente */
+        }
+        .black-background {
+            height: 100%;
+            background-color: #663399;
+            border: 1px solid #333;
+            border-radius: 5px;
+            text-align: left;
+            width: 94%;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+            padding: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+        .footer img {
+            width: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .footer p {
+            margin: 0;
+        }
+        .buy-button {
+            font-size: 13px; /* Defina o tamanho da fonte desejado */
+            padding: 5px 10px; /* Ajuste o preenchimento conforme necessário */
+            /* Defina a largura do botão, se necessário */
+        }
+        .buy-button1 {
+            font-size: 14px; /* Defina o tamanho da fonte desejado */
+            padding: 5px 20px; /* Ajuste o preenchimento conforme necessário */
+            line-height: 10px; /* Ajuste conforme necessário para centralizar verticalmente */
+        }
+        .hide-content {
+            display: none;
+        }
+            /* Exemplo de media query para dispositivos com largura máxima de 768px (tablets) */
+            @media only screen and (max-width: 768px) {
+            /* Seus estilos para tablets aqui */
+        }
+
+            /* Exemplo de media query para dispositivos com largura máxima de 480px (celulares) */
+            @media only screen and (max-width: 480px) {
+            /* Seus estilos para celulares aqui */
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="margin-bottom: 40px;">
+        <h1>Seleção de Planilhas - Personalizadas Jogo Fácil Ouro - Home Office</h1>
+        <p>A Futurainfobook é uma empresa comprometida em fornecer planilhas Personalizadas para todos os segmentos.</p>
+        <p>Nossas planilhas são de acordo com as suas necessidades e nossa tecnologia de inteligência artificial </p>
+        <p>garante os melhores resultados. Adquira um modelo de Planilha para sua necessidade!</p>
+ </div>
+</div>
+    <div class="banner1-text">
+        <a href="paginaprodutos" class="buy-button1"><img src="imagens2/lotosouro.png" alt="Ícone de Carrinho" class="cart-icon"></a>
+        <a href="paginaprodutos2" class="buy-button1"><img src="imagens2/office.png" alt="Ícone de Carrinho" class="cart-icon"></a>
+        <a href="formulario">Cadastrar</a>
+    </div>
+   <div class="banner2-wrapper">
+        <div class="banner2-text">
+           Adquira um modelo - Loterias Ouro.
+        </div>
+    </div>
+<div class="third-section">
+    <div class="model-box free">
+        <h2 class="model-text">Modelos Grátis</h2>
+        <p class="model-text">Planilhas básicas para iniciantes</p>
+        <a href="paginaprodutos" class="buy-button">Baixar</a>
+        <!-- Ícone do produto grátis -->
+        <img src="imagens2/01.png" alt="Ícone do Produto Grátis" class="product-icon">
+    </div>
+
+    <div class="model-box basic">
+        <h2 class="model-text">Modelo Básico</h2>
+        <p class="model-text">Conferência de Jogos e resultados</p>
+        <a href="paginaprodutos" class="buy-button">Comprar</a>
+        <!-- Ícone do produto básico -->
+        <img src="imagens2/02.png" alt="Ícone do Produto Básico" class="product-icon">
+    </div>
+
+    <div class="model-box intermediate">
+        <h2 class="model-text">Modelo Intermediário</h2>
+        <p class="model-text">Análises dos últimos sorteios e planos de Jogos</p>
+        <a href="paginaprodutos" class="buy-button">Comprar</a>
+        <!-- Ícone do produto intermediário -->
+        <img src="imagens2/03.png" alt="Ícone do Produto Intermediário" class="product-icon">
+    </div>
+
+    <div class="model-box premium">
+        <h2 class="model-text">Modelo Premium</h2>
+        <p class="model-text">Análises aprofundadas e previsões</p>
+        <a href="paginaprodutos" class="buy-button">Comprar</a>
+        <!-- Ícone do produto avançado -->
+        <img src="imagens2/04.png" alt="Ícone do Produto Avançado" class="product-icon">
+    </div>
+  </div>
+   <div class="banner2-wrapper">
+        <div class="banner2-text">
+           Adquira um modelo - Home Office.
+        </div>
+    </div>
+<div class="third-section">
+    <div class="model-box2 free2" style="background-color: #f5f5f5;">
+        <h2 class="model-text2">Modelos Grátis</h2>
+        <p class="model-text2">Planilhas básicas para escritórios</p>
+        <a href="paginaprodutos2" class="buy-button">Baixar</a>
+        <!-- Ícone do produto básico -->
+        <img src="imagens1/one.png" alt="Ícone do Produto Grátis" class="product-icon">
+    </div>
+
+    <div class="model-box2 basic2" style="background-color: #f5f5f5;">
+        <h2 class="model-text2">Modelo Básico</h2>
+        <p class="model-text2">RH - Recursos Humanos</p>
+        <a href="paginaprodutos2" class="buy-button">Comprar</a>
+        <!-- Ícone do produto básico -->
+        <img src="imagens1/four.png" alt="Ícone do Produto Básico" class="product-icon">
+    </div>
+
+    <div class="model-box2 intermediate2" style="background-color: #f5f5f5;">
+        <h2 class="model-text2">Modelo Intermediário</h2>
+        <p class="model-text2">Análises dos últimos e dashboard</p>
+        <a href="paginaprodutos2" class="buy-button">Comprar</a>
+        <!-- Ícone do produto intermediário -->
+        <img src="imagens1/two.png" alt="Ícone do Produto Intermediário" class="product-icon">
+    </div>
+
+    <div class="model-box2 premium2" style="background-color: #f5f5f5;">
+        <h2 class="model-text2">Modelo Premium</h2>
+        <p class="model-text2">Análises aprofundadas com dashboard e gráficos</p>
+        <a href="paginaprodutos2" class="buy-button">Comprar</a>
+        <!-- Ícone do produto avançado -->
+        <img src="imagens1/five.png" alt="Ícone do Produto Avançado" class="product-icon">
+    </div>
+</div>
+
+    <div class="banner2-wrapper">
+        <div class="banner2-text">
+            Com IA analisando os últimos resultados e trazendo jogos com as dezenas mais prováveis, as chances de acertos são maiores! Não é fórmula milagrosa, é análise e persistência em jogos.
+        </div>
+    </div>
+
+    <div class="container2">
+        <p>A Futurainfobook é uma empresa comprometida em fornecer as melhores Planilhas.</p>
+        <p>Adquira um modelo de Planilha para sua necessidade!</p>
+    </div>
+
+<div class="black-background">
+    <h2 style="font-size: 14px; color: white; margin: 25px 0;">Informações de Contato</h2>
+    <div class="contact-box">
+        <p style="font-size: 11px; margin-bottom: 4px; color: white;">Fale com nossa equipe de atendimento ao cliente. Use este formulário ou entre em contato direto por e-mail ou telefone.</p>
+        <form>
+            <div>
+                <div style="display: flex; flex-wrap: wrap; align-items: flex-start; height: 100px;">
+                    <div style="flex: 0 0 calc(12% - 12px); margin-right: 2px; margin-bottom: 1px; text-align: left;">
+                        <label for="fname" style="color: white;">Nome*</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Seu nome..." style="width: 86%; background-color: #D3D3D3; color: black;">
+                    </div>
+                    <div style="flex: 0 0 calc(12% - 12px); margin-right: 2px; margin-bottom: 1px; text-align: left;">
+                        <label for="lname" style="color: white;">Sobrenome*</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Seu sobrenome..." style="width: 86%; background-color: #D3D3D3; color: black;">
+                    </div>
+                    <div style="flex: 0 0 calc(16% - 16px); margin-right: 2px; margin-bottom: 1px; text-align: left;">
+                        <label for="email" style="color: white;">Email*</label>
+                        <input type="text" id="email" name="email" placeholder="Seu email..." style="width: 90%; background-color: #D3D3D3; color: black;">
+                    </div>
+                    <div style="flex: 0 0 calc(20% - 20px); margin-right: 2px; margin-bottom: 1px; text-align: left;">
+                        <label for="message" style="color: white;">Mensagem:</label>
+                        <textarea id="message" name="message" placeholder="Sua mensagem..." style="width: 94%; height: 15px; background-color: #D3D3D3; color: black;"></textarea>
+                    </div>
+                    <input type="submit" value="Enviar" style="width: 80px; margin-top: 13px;">
+                </div>
+            </div>
+        </form>
+    </div>
+    <h2 style="font-size: 14px; color: white; margin: -44px 0 10px;">Informações do Site</h2>
+    <p style="font-size: 14px; color: white; margin: 0;">suporte@futurainfobook.com.br</p>
+    <p style="font-size: 14px; color: white; margin: 0;">(86) 98164-9015</p>
+    <p style="font-size: 14px; color: white; margin: 0;">Rua Belo Horizonte</p>
+    <p style="font-size: 14px; color: white; margin: 0;">Teresina - PI</p>
+</div>
+
+<div class="footer">
+    <img src="imagens1/icon.png" alt="Ícone de Localização">
+    <p>&copy; 2024 Futura Infobook - Todos os direitos reservados</p>
+</div>
+
+</body>
+</html>
+
