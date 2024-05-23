@@ -4,9 +4,14 @@ session_start();
 // Incluir o autoload do Composer corretamente
 require_once 'composer/vendor/autoload.php';
 
-use MercadoPago\Client\Payment\PaymentClient;
+use MercadoPago\Client\MercadoPagoClient;
+use MercadoPago\Client\User\UserClient;
+use MercadoPago\SDK;
 use MercadoPago\MercadoPagoConfig;
-use MercadoPago\Item;
+use MercadoPago\Resources\Payment;
+
+use MercadoPago\Client\Payment\PaymentClient;
+use MercadoPago\Exceptions\MercadoPagoException;
 
 // Verificar se os dados foram enviados via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -22,36 +27,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
 // Definir o access token corretamente
 MercadoPagoConfig::setAccessToken("TEST-8058492724364836-042512-2b0b289b6413d5d1da9e85559140a58a-161918682");
+  // Inicializar o cliente de pagamento
+  $paymentClient = new PaymentClient();
+  // Criar um novo pagamento
+  $payment = new Payment(); // Corrigi para usar a classe Payment do MercadoPago SDK
+  $payment->transaction_amount = (float)$totalCompra;
+  $payment->description = $tipoCompra;
+  $payment->payment_method_id = "pix";
+  $payment->payer = [
+      "email" => $emailCliente,
+      "first_name" => $nomeCliente,
+      "last_name" => $sobrenomeCliente,
+      "phone" => [
+          "area_code" => "", // Pode ajustar o código de área se necessário
+          "number" => $telefoneCliente
+      ]
+  ];
 
-MercadoPagoConfig::setRuntimeEnviroment(MercadoPagoConfig::LOCAL);
-
-// Inicializar o cliente de API
-$client = new PaymentClient();
-$request = [
-        // Definir os dados do pagamento
-        "transaction_amount" => 100,
-        "payment_method_id " => "pix",
-        "description" => "description",
-        "installments" => 1,
-        "payment_method_id" => "visa",
-        "payer" => [
-            "email" => "user@test.com",
-                ]
-            ];
-
-              // Criar um novo pagamento
-        $payment = $client->create($request);
-      // Salvar o pagamento
-     
-        // Salvar o pagamento
-        if ($payment) {
+   
+        // Verificar se o pagamento foi criado com sucesso
+        if ($payment->status == 'pending') {
             $dados = [
-            'qr_code_base64' => $payment->point_of_interaction->transaction_data->qr_code_base64 ?? '',
-            'qr_code' => $payment->point_of_interaction->transaction_data->qr_code ?? '',
-            'payment_id' => $payment->id,
-            'valor' => $totalCompra,
-            'produto' => 'Compra de Produto'
-        ];
+                'qr_code_base64' => $payment->point_of_interaction->transaction_data->qr_code_base64 ?? '',
+                'qr_code' => $payment->point_of_interaction->transaction_data->qr_code ?? '',
+                'payment_id' => $payment->id,
+                'valor' => $totalCompra,
+                'produto' => $tipoCompra,
+                'emailCliente' => $emailCliente,
+                'nomeCliente' => $nomeCliente
+            ];
         // Redirecionar para a página de QRCODE com os dados
         header('Location: qrcode.php?' . http_build_query($dados));
         exit;
