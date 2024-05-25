@@ -397,10 +397,10 @@ $nomeUsuario = $_SESSION['email'];
 </div>
 <div class="banner1-wrapper">
         <div class="banner1-text">
-        <a href="indexcliente.php" class="buy-button1"><img src="imagens2/casa3d2.png" alt="Ícone home" class="cart-icon"></a>
-        <a href="paginaprodutos2.php" class="buy-button1"><img src="imagens2/office.png" alt="Ícone home office" class="cart-icon"></a>
+        <a href="indexcliente.php" class="buy-button1"><img src="imagens/casa3d2.png" alt="Ícone home" class="cart-icon"></a>
+        <a href="paginaprodutos2.php" class="buy-button1"><img src="imagens/office.png" alt="Ícone home office" class="cart-icon"></a>
               <a href="carrinho.php" class="buy-button1">
-                <img src="imagens2/carinho.png" alt="Ícone de Carrinho" class="cart-count">
+                <img src="imagens/carinho.png" alt="Ícone de Carrinho" class="cart-count">
                 <div id="cart-count" class="cart-counter"><?php echo isset($_SESSION['carrinho']) ? count($_SESSION['carrinho']) : 0; ?></div>
         </a>
         <a href="#" id="logoutButton" class="buy-button">Sair</a> <!-- Botão de logout -->
@@ -422,7 +422,7 @@ Adquira um modelo - Loterias Ouro.
         <button class="add-to-cart" data-produto-id="loto1">=> Carrinho</button>
         
         <!-- Ícone do produto grátis -->
-        <img src="imagens2/01.png" alt="Ícone do Produto Grátis" class="product-icon">
+        <img src="imagens/01.png" alt="Ícone do Produto Grátis" class="product-icon">
     </div>
     <div class="model-box basic">
         <h2 class="model-text">Modelo Básico</h2>
@@ -430,7 +430,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Comprar</a>
         <button class="add-to-cart" data-produto-id="loto2">=> Carrinho</button>
         <!-- Ícone do produto básico -->
-        <img src="imagens2/bas.png" alt="Ícone do Produto Básico" class="product-icon">
+        <img src="imagens/bas.png" alt="Ícone do Produto Básico" class="product-icon">
     </div>
 
 <div class="model-box intermediate">
@@ -439,7 +439,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Comprar</a>
         <button class="add-to-cart" data-produto-id="loto3">=> Carrinho</button>
         <!-- Ícone do produto intermediário -->
-        <img src="imagens2/inter01.png" alt="Ícone do Produto Intermediário" class="product-icon">
+        <img src="imagens/inter01.png" alt="Ícone do Produto Intermediário" class="product-icon">
     </div>
 
     <div class="model-box premium" style="animation: blink 1s infinite;">
@@ -448,7 +448,7 @@ Adquira um modelo - Loterias Ouro.
     <a href="carrinho.php" class="buy-button">Comprar</a>
         <button class="add-to-cart" data-produto-id="loto4">=> Carrinho</button>
     <!-- Ícone do produto avançado -->
-       <img src="imagens2/prem01.png" alt="Ícone do Produto Avançado" class="product-icon">
+       <img src="imagens/prem01.png" alt="Ícone do Produto Avançado" class="product-icon">
     </div>
 </div>
 <div class="banner1-text">
@@ -459,7 +459,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Baixar</a>
         <button class="add-to-cart" data-produto-id="home1">=> Carrinho</button>
         <!-- Ícone do produto básico -->
-        <img src="imagens1/one.png" alt="Ícone do Produto Grátis" class="product-icon">
+        <img src="imagens/one.png" alt="Ícone do Produto Grátis" class="product-icon">
     </div>
 
     <div class="model-box2 basic2" style="background-color: #f5f5f5;">
@@ -468,7 +468,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Comprar</a>
         <button class="add-to-cart" data-produto-id="home2">=> Carrinho</button>
         <!-- Ícone do produto básico -->
-        <img src="imagens1/four.png" alt="Ícone do Produto Básico" class="product-icon">
+        <img src="imagens/four.png" alt="Ícone do Produto Básico" class="product-icon">
     </div>
 
     <div class="model-box2 intermediate2" style="background-color: #f5f5f5;">
@@ -477,7 +477,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Comprar</a>
         <button class="add-to-cart" data-produto-id="home3">=> Carrinho</button>
         <!-- Ícone do produto intermediário -->
-        <img src="imagens1/two.png" alt="Ícone do Produto Intermediário" class="product-icon">
+        <img src="imagens/two.png" alt="Ícone do Produto Intermediário" class="product-icon">
     </div>
 
     <div class="model-box2 premium2" style="background-color: #f5f5f5;">
@@ -486,7 +486,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Comprar</a>
         <button class="add-to-cart" data-produto-id="home4">=> Carrinho</button>
         <!-- Ícone do produto avançado -->
-        <img src="imagens1/five.png" alt="Ícone do Produto Avançado" class="product-icon">
+        <img src="imagens/five.png" alt="Ícone do Produto Avançado" class="product-icon">
     </div>
 </div>
 <div class="banner1-text">
@@ -497,7 +497,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Baixar</a>
         <button class="add-to-cart" data-produto-id="home5">=> Carrinho</button>
         <!-- Ícone do produto básico -->
-        <img src="imagens1/one.png" alt="Ícone do Produto Grátis" class="product-icon">
+        <img src="imagens/one.png" alt="Ícone do Produto Grátis" class="product-icon">
     </div>
 
     <div class="model-box2 basic2" style="background-color: #f5f5f5;">
@@ -506,7 +506,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Comprar</a>
         <button class="add-to-cart" data-produto-id="home6">=> Carrinho</button>
         <!-- Ícone do produto básico -->
-        <img src="imagens1/four.png" alt="Ícone do Produto Básico" class="product-icon">
+        <img src="imagens/four.png" alt="Ícone do Produto Básico" class="product-icon">
     </div>
 
     <div class="model-box2 intermediate2" style="background-color: #f5f5f5;">
@@ -515,7 +515,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Comprar</a>
         <button class="add-to-cart" data-produto-id="home7">=> Carrinho</button>
         <!-- Ícone do produto intermediário -->
-        <img src="imagens1/two.png" alt="Ícone do Produto Intermediário" class="product-icon">
+        <img src="imagens/two.png" alt="Ícone do Produto Intermediário" class="product-icon">
     </div>
 
     <div class="model-box2 premium2" style="background-color: #f5f5f5;">
@@ -524,7 +524,7 @@ Adquira um modelo - Loterias Ouro.
         <a href="carrinho.php" class="buy-button">Comprar</a>
         <button class="add-to-cart" data-produto-id="home8">=> Carrinho</button>
         <!-- Ícone do produto avançado -->
-        <img src="imagens1/five.png" alt="Ícone do Produto Avançado" class="product-icon">
+        <img src="imagens/five.png" alt="Ícone do Produto Avançado" class="product-icon">
     </div>
 </div>
 
@@ -699,7 +699,7 @@ Adquira um modelo - Loterias Ouro.
     <br>
     <div>&copy; 2024 Futura Infobook - Todos os direitos reservados</p>
     <br>
-    <img src="imagens2/bas.png" alt="Ícone de Carrinho" class="cart-icon"></a>
+    <img src="imagens/bas.png" alt="Ícone de Carrinho" class="cart-icon"></a>
 </div>
 </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
