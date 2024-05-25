@@ -421,7 +421,6 @@ Adquira um modelo - Loterias Ouro.
         <p class="model-text">Planilhas básicas para iniciantes.</p>
         <a href="carrinho.php" class="buy-button">Baixar</a>
         <button class="add-to-cart" data-produto-id="loto1">=> Carrinho</button>
-        
         <!-- Ícone do produto grátis -->
         <img src="imagens2/01.png" alt="Ícone do Produto Grátis" class="product-icon">
     </div>

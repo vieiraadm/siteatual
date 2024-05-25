@@ -8,36 +8,9 @@ if (isset($_SESSION['compraDados']) && !empty($_SESSION['compraDados'])) {
     $telefoneCliente = isset($_SESSION['telefoneUsuario']) ? $_SESSION['telefoneUsuario'] : '';
     $nomeCliente = isset($_SESSION['nomeUsuario']) ? $_SESSION['nomeUsuario'] : '';
     $emailCliente = isset($_SESSION['emailUsuario']) ? $_SESSION['emailUsuario'] : '';
-    $sobrenomeCliente = isset($_SESSION['sobrenomeCliente']) ? $_SESSION['sobrenomeCliente'] : '';
-
-    // Calcular a chave única da venda com no máximo 10 dígitos
-    $ultimosDigitosTelefone = substr($telefoneCliente, -4); // Obter os últimos 4 dígitos do telefone
-    $tamanhoChave = strlen((string) $totalCompra) + strlen($ultimosDigitosTelefone);
-    $maxDigitos = 10;
-    $numerosAleatorios = $maxDigitos - $tamanhoChave;
-
-    // Gerar números aleatórios entre 1 e 10 para preencher a chave
-    $chavevenda = (string) $totalCompra . $ultimosDigitosTelefone;
-    for ($i = 0; $i < $numerosAleatorios; $i++) {
-        $chavevenda .= mt_rand(1, 10); // Adiciona um número aleatório entre 1 e 10
-    }
-
-    // Limitar a chave ao tamanho máximo
-    $chavevenda = substr($chavevenda, 0, $maxDigitos);
-
-    // Remover pontos (.) da chave
-    $chavevenda = str_replace('.', '', $chavevenda);
-
-    // Verificar se a chave está completa
-    if (strlen($chavevenda) < $maxDigitos) {
-        // Preencher com números aleatórios para completar
-        $numFaltantes = $maxDigitos - strlen($chavevenda);
-        for ($i = 0; $i < $numFaltantes; $i++) {
-            $chavevenda .= mt_rand(1, 10); // Adiciona um número aleatório entre 1 e 10
-        }
-    }
+    $sobrenomeCliente = isset($_SESSION['sobrenomeUsuario']) ? $_SESSION['sobrenomeUsuario'] : '';
+    $chavevenda = isset($_SESSION['chavevenda']) ? $_SESSION['chavevenda'] : ''; // Recuperar a chave de venda da sessão
 ?>
- 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -90,10 +63,8 @@ if (isset($_SESSION['compraDados']) && !empty($_SESSION['compraDados'])) {
 <div class="container">
     <div class="buy-button-container">
          <button onclick="window.location.href='carrinho.php'">Home</button>
-         </button>
-        </form>
     </div>
-   <?php if (!empty($compraDados['itens'])) : ?>
+    <?php if (!empty($compraDados['itens'])) : ?>
         <p>Itens Comprados:</p>
         <ul>
             <?php foreach ($compraDados['itens'] as $item) : ?>
@@ -104,35 +75,32 @@ if (isset($_SESSION['compraDados']) && !empty($_SESSION['compraDados'])) {
 
         </ul>
         <p>Total da Compra: R$ <?php echo number_format($totalCompra, 2, ',', '.'); ?></p>
-        <p>Nome: <?php echo $nomeCliente; ?> <?php echo $sobrenomeCliente; ?></p>
+        <p>Nome: <?php echo $nomeCliente; ?></p>
+        <p>Sobrenome: <?php echo $sobrenomeCliente; ?></p>
         <p>Email: <?php echo $emailCliente; ?></p>
         <p>Telefone: <?php echo $telefoneCliente; ?></p>
         <p>Chave Id: <?php echo $chavevenda; ?></p>
         <br>
            
-             <!-- Formulário para enviar dados para processa_pix.php -->
-            <form action="processa_pix.php" method="post">
-                <input type="hidden" name="totalCompra" value="<?php echo $totalCompra; ?>">
-                <input type="hidden" name="tipoCompra" value="Compra de Planilha Personalizada">
-                <!-- Dados do cliente -->
-                <input type="hidden" name="emailCliente" value="<?php echo $emailCliente; ?>">
-                <input type="hidden" name="nomeCliente" value="<?php echo $nomeCliente; ?>">
-                <input type="hidden" name="sobrenomeCliente" value="<?php echo $sobrenomeCliente; ?>">
-                <input type="hidden" name="telefoneCliente" value="<?php echo $telefoneCliente; ?>">
-                <!-- Chave Id -->
-                <input type="hidden" name="chavevenda" value="<?php echo $chavevenda; ?>">
+      <!-- Formulário para enviar dados para processa_pix.php -->
+<form id="pixForm" action="processa_pix.php" method="POST">
+    <input type="hidden" name="totalCompra" value="<?php echo $totalCompra; ?>">
+    <input type="hidden" name="tipoCompra" value="Compra de Planilha Personalizada">
+    <!-- Dados do cliente -->
+    <input type="hidden" name="emailCliente" value="<?php echo $emailCliente; ?>">
+    <input type="hidden" name="nomeCliente" value="<?php echo $nomeCliente; ?>">
+    <input type="hidden" name="sobrenomeCliente" value="<?php echo $sobrenomeCliente; ?>">
+    <input type="hidden" name="telefoneCliente" value="<?php echo $telefoneCliente; ?>">
+    <input type="hidden" name="chavevenda" value="<?php echo $chavevenda; ?>">
 
-                <div class="container">
-                <div class="buy-button-container">
-                <!-- Botão "Pagar com PIX" -->
-                <button type="submit">Pagar com PIX</button>
-                </button>
-        </form>
+    <div class="container">
+        <div class="buy-button-container">
+            <!-- Botão "Pagar com PIX" -->
+            <button type="submit">Pagar com PIX</button>
+        </div>
     </div>
-            <br>
-            <br>
-            <br>
-    <?php endif; ?>
+</form>
+<?php endif; ?>
 </div>
 </body>
 </html>
@@ -144,9 +112,9 @@ if (isset($_SESSION['compraDados']) && !empty($_SESSION['compraDados'])) {
     unset($_SESSION['emailUsuario']);
     unset($_SESSION['telefoneUsuario']);
     unset($_SESSION['sobrenomeUsuario']);
+    unset($_SESSION['chavevenda']); // Limpar a chave de venda da sessão
 } else {
     echo "<p>Erro: Dados da compra não encontrados.</p>";
-
 }
+?>
 
- ?>

@@ -77,6 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['compraRegistrada'] = true;
         $_SESSION['totalCompra'] = $totalCompra;
         $_SESSION['nomeUsuario'] = $nome;
+        $_SESSION['sobrenomeUsuario'] = $sobrenome;
         $_SESSION['emailUsuario'] = $email;
 
         // Redirecionar para a página comprafinal.php
